@@ -1,0 +1,20 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: test-pod
+spec:
+  containers:
+  - name: test-pod
+    image: tutum/hello-world
+    ports:
+    - containerPort: 80
+      name: http
+      protocol: TCP
+    volumeMounts:
+      - name: efs-pvc
+        mountPath: "/mnt"
+  restartPolicy: "Never"
+  volumes:
+    - name: efs-pvc
+      persistentVolumeClaim:
+        claimName: efs-sre

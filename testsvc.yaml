@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: test
+#    chart: abo-58
+#    heritage: Tiller
+#    release: abo-uat
+  name: test-svc
+#  namespace: uat
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: test

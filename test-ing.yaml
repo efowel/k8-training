@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  creationTimestamp: 2019-02-27T06:47:58Z
+  generation: 1
+  labels:
+    app: fhr
+    chart: fhr-34
+    heritage: Tiller
+    release: fhr-prod
+  name: fhr-prod
+  namespace: prod
+spec:
+  rules:
+  - host: fhr-test.prod.adnc.cambridge.org
+    http:
+      paths:
+      - backend:
+          serviceName: fhr-test-prod
+          servicePort: http
